@@ -9,12 +9,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List wallpaperimage = ["assets/images/wallpaper1.jpg"];
+  List wallpaperimage = [
+    "assets/images/w1.jpg",
+    "assets/images/w2.jpg",
+    "assets/images/w3.jpeg",
+    "assets/images/w4.jpeg",
+    "assets/images/w5.jpeg"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.only(top: 60, left: 20),
+        margin: const EdgeInsets.only(top: 60, left: 20, right: 20.0),
         child: Column(
           children: [
             Row(
@@ -41,15 +47,37 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Poppins'),
                 ),
-                CarouselSlider.builder(
-                    itemCount: wallpaperimage.length,
-                    itemBuilder: itemBuilder,
-                    options: options)
               ],
-            )
+            ),
+            const SizedBox(height: 30.0,),
+            CarouselSlider.builder(
+              itemCount: wallpaperimage.length,
+              itemBuilder: (context, index, realIndex) {
+                final res = wallpaperimage[index];
+                return buildImage(res, index);
+              },
+              options: CarouselOptions(
+                height: MediaQuery.of(context).size.height / 1.5,
+                viewportFraction: 1,
+                enlargeCenterPage: true,
+                enlargeStrategy: CenterPageEnlargeStrategy.height,
+              ),
+            ),
           ],
         ),
       ),
     );
   }
+
+  Widget buildImage(String urlImage, int index) => Container(
+        height: MediaQuery.of(context).size.height / 1.5,
+        width: MediaQuery.of(context).size.width,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: Image.asset(
+            urlImage,
+            fit: BoxFit.cover,
+          ),
+        ),
+      );
 }
