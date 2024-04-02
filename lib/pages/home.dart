@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,6 +9,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List wallpaperimage = ["assets/images/wallpaper1.jpg"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +30,9 @@ class _HomePageState extends State<HomePage> {
                         width: 60,
                       )),
                 ),
-                const SizedBox(width: 80.0,),
+                const SizedBox(
+                  width: 80.0,
+                ),
                 const Text(
                   "Wallify",
                   style: TextStyle(
@@ -37,7 +41,10 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Poppins'),
                 ),
-                
+                CarouselSlider.builder(
+                    itemCount: wallpaperimage.length,
+                    itemBuilder: itemBuilder,
+                    options: options)
               ],
             )
           ],
