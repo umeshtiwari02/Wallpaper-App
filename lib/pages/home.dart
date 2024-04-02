@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,6 +17,9 @@ class _HomePageState extends State<HomePage> {
     "assets/images/w4.jpeg",
     "assets/images/w5.jpeg"
   ];
+
+  int activeIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +53,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            const SizedBox(height: 30.0,),
+            const SizedBox(
+              height: 30.0,
+            ),
             CarouselSlider.builder(
               itemCount: wallpaperimage.length,
               itemBuilder: (context, index, realIndex) {
@@ -57,19 +63,37 @@ class _HomePageState extends State<HomePage> {
                 return buildImage(res, index);
               },
               options: CarouselOptions(
+                autoPlay: true,
                 height: MediaQuery.of(context).size.height / 1.5,
                 viewportFraction: 1,
                 enlargeCenterPage: true,
                 enlargeStrategy: CenterPageEnlargeStrategy.height,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    activeIndex = index;
+                  });
+                },
               ),
             ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            Center(child: buildIndicator()),
           ],
         ),
       ),
     );
   }
 
+  Widget buildIndicator() => AnimatedSmoothIndicator(
+        activeIndex: activeIndex,
+        count: wallpaperimage.length,
+        effect: const SlideEffect(
+            dotWidth: 15, dotHeight: 15, activeDotColor: Colors.blue),
+      );
+
   Widget buildImage(String urlImage, int index) => Container(
+        margin: const EdgeInsets.only(right: 10),
         height: MediaQuery.of(context).size.height / 1.5,
         width: MediaQuery.of(context).size.width,
         child: ClipRRect(
