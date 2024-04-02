@@ -12,17 +12,32 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: const Column(
+        margin: const EdgeInsets.only(top: 60, left: 20),
+        child: Column(
           children: [
-            Center(
-              child: Text(
-                "Wallify",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
+            Row(
+              children: [
+                Material(
+                  elevation: 5.0,
+                  borderRadius: BorderRadius.circular(60),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(60),
+                      child: Image.asset(
+                        "assets/images/me.jpg",
+                        height: 60,
+                        width: 60,
+                      )),
                 ),
-              ),
+                const SizedBox(width: 80.0,),
+                const Text(
+                  "Wallify",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Poppins'),
+                ),
+              ],
             )
           ],
         ),
