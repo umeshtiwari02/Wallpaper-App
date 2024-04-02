@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                   "Wallify",
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 25,
+                      fontSize: 28,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Poppins'),
                 ),
