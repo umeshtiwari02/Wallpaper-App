@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Poppins'),
                 ),
+                
               ],
             )
           ],
