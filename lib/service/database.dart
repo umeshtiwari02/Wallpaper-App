@@ -8,4 +8,8 @@ class Databasemethods {
         .doc(id)
         .set(wallpaperInfoMap);
   }
+
+  Future<Stream<QuerySnapshot>> getCategory(String name) async {
+    return await FirebaseFirestore.instance.collection(name).snapshots();
+  }
 }

@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.only(top: 60, left: 20, right: 20.0),
+        margin: const EdgeInsets.only(top: 40, left: 20, right: 20.0),
         child: Column(
           children: [
             Row(
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             const SizedBox(
-              height: 30.0,
+              height: 20.0,
             ),
             CarouselSlider.builder(
               itemCount: wallpaperimage.length,
