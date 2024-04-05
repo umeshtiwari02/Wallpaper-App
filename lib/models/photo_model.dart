@@ -1,8 +1,8 @@
 class PhotosModel {
   String? url;
-  SrcModel src;
+  SrcModel? src;
 
-  PhotosModel({this.url, required this.src});
+  PhotosModel({this.url, this.src});
 
   factory PhotosModel.fromMap(Map<String, dynamic> parsedJson) {
     return PhotosModel(
