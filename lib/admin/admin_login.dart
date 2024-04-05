@@ -20,7 +20,7 @@ class _AdminLoginState extends State<AdminLogin> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Color(0xFFededeb),
+      backgroundColor: const Color(0xFFededeb),
       body: SingleChildScrollView(
         child: Container(
           child: Stack(
@@ -41,19 +41,19 @@ class _AdminLoginState extends State<AdminLogin> {
                         top: Radius.elliptical(width, 110.0))),
               ),
               Container(
-                margin: EdgeInsets.only(left: 30.0, right: 30.0, top: 60),
+                margin: const EdgeInsets.only(left: 30.0, right: 30.0, top: 60),
                 child: Form(
                     key: _formKey,
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           "Let's start with\nAdmin",
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 25.0,
                               fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(height: 30.0),
+                        const SizedBox(height: 30.0),
                         Material(
                           elevation: 3.0,
                           borderRadius: BorderRadius.circular(20),
@@ -65,14 +65,14 @@ class _AdminLoginState extends State<AdminLogin> {
                             ),
                             child: Column(
                               children: [
-                                SizedBox(height: 50),
+                                const SizedBox(height: 50),
                                 Container(
-                                  padding: EdgeInsets.only(
+                                  padding: const EdgeInsets.only(
                                       left: 20.0, bottom: 2.0, top: 2.0),
-                                  margin: EdgeInsets.symmetric(horizontal: 20),
+                                  margin: const EdgeInsets.symmetric(horizontal: 20),
                                   decoration: BoxDecoration(
                                       border: Border.all(
-                                        color: Color.fromARGB(255, 160, 160, 147),
+                                        color: const Color.fromARGB(255, 160, 160, 147),
                                       ),
                                       borderRadius: BorderRadius.circular(12)),
                                   child: Center(
@@ -83,7 +83,7 @@ class _AdminLoginState extends State<AdminLogin> {
                                           return 'Please Enter Username';
                                         }
                                       },
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                           border: InputBorder.none,
                                           hintText: 'Username',
                                           hintStyle: TextStyle(
@@ -93,14 +93,14 @@ class _AdminLoginState extends State<AdminLogin> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 30),
+                                const SizedBox(height: 30),
                                 Container(
-                                  padding: EdgeInsets.only(
+                                  padding: const EdgeInsets.only(
                                       left: 20.0, bottom: 2.0, top: 2.0),
-                                  margin: EdgeInsets.symmetric(horizontal: 20),
+                                  margin: const EdgeInsets.symmetric(horizontal: 20),
                                   decoration: BoxDecoration(
                                       border: Border.all(
-                                        color: Color.fromARGB(255, 160, 160, 147),
+                                        color: const Color.fromARGB(255, 160, 160, 147),
                                       ),
                                       borderRadius: BorderRadius.circular(12)),
                                   child: Center(
@@ -111,7 +111,7 @@ class _AdminLoginState extends State<AdminLogin> {
                                           return 'Please Enter Password';
                                         }
                                       },
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                           border: InputBorder.none,
                                           hintText: 'Password',
                                           hintStyle: TextStyle(
@@ -121,21 +121,21 @@ class _AdminLoginState extends State<AdminLogin> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 40.0),
+                                const SizedBox(height: 40.0),
                                 GestureDetector(
                                   onTap: () {
                                     LoginAdmin();
                                   },
                                   child: Container(
-                                    padding: EdgeInsets.symmetric(vertical: 12.0),
+                                    padding: const EdgeInsets.symmetric(vertical: 12.0),
                                     margin:
-                                        EdgeInsets.symmetric(horizontal: 20.0),
+                                        const EdgeInsets.symmetric(horizontal: 20.0),
                                     width: width,
                                     decoration: BoxDecoration(
                                       color: Colors.black,
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                         "Login",
                                         style: TextStyle(
@@ -165,7 +165,7 @@ class _AdminLoginState extends State<AdminLogin> {
     FirebaseFirestore.instance.collection("Admin").get().then((snapshot) {
       snapshot.docs.forEach((result) {
         if (result.data()['id'] != userNameController.text.trim()) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             backgroundColor: Colors.orangeAccent,
             content: Text(
               "Your id is not correct",
@@ -175,7 +175,7 @@ class _AdminLoginState extends State<AdminLogin> {
         }
 
         if (result.data()['password'] != userPasswordController.text.trim()) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             backgroundColor: Colors.orangeAccent,
             content: Text(
               "Your password is not correct",
@@ -183,7 +183,7 @@ class _AdminLoginState extends State<AdminLogin> {
             ),
           ));
         } else {
-          Route route = MaterialPageRoute(builder: (context) => AddWallpaper());
+          Route route = MaterialPageRoute(builder: (context) => const AddWallpaper());
           Navigator.pushReplacement(context, route);
         }
       });
