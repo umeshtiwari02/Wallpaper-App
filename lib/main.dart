@@ -1,3 +1,4 @@
+import 'package:chat_practice/admin/admin_login.dart';
 import 'package:chat_practice/pages/bottom_nav.dart';
 import 'package:chat_practice/pages/home.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: BottomNav(),
+      home: AdminLogin(),
     );
   }
 }
